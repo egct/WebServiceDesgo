@@ -2,18 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/egct/Documents/GitHub/DESGOVERSION2/DESARROLLOWEB/DESGOWebService/src/java/ec/com/desgo/modelo/UserDAO.java</file>
-            <file>file:/C:/Users/egct/Documents/GitHub/DESGOVERSION2/DESARROLLOWEB/DESGOWebService/src/java/ec/com/desgo/prueba/prueba03.java</file>
-            <file>file:/C:/Users/egct/Documents/GitHub/DESGOVERSION2/DESARROLLOWEB/DESGOWebService/src/java/ec/com/desgo/prueba/prueba04IdUser.java</file>
-            <file>file:/C:/Users/egct/Documents/GitHub/DESGOVERSION2/DESARROLLOWEB/DESGOWebService/src/java/ec/com/desgo/prueba/prueba01.java</file>
-            <file>file:/C:/Users/egct/Documents/GitHub/DESGOVERSION2/DESARROLLOWEB/DESGOWebService/src/java/ec/com/desgo/servicios/WSGestionUsuario.java</file>
-            <file>file:/C:/Users/egct/Documents/GitHub/DESGOVERSION2/DESARROLLOWEB/DESGOWebService/web/WEB-INF/jax-ws-catalog.xml</file>
-            <file>file:/C:/Users/egct/Documents/GitHub/DESGOVERSION2/DESARROLLOWEB/DESGOWebService/src/java/ec/com/desgo/modelo/Conexion.java</file>
-            <file>file:/C:/Users/egct/Documents/GitHub/DESGOVERSION2/DESARROLLOWEB/DESGOWebService/web/WEB-INF/wsdl/localhost_8080/DESGOWebService/WSGestionUsuario.wsdl</file>
-            <file>file:/C:/Users/egct/Documents/GitHub/DESGOVERSION2/DESARROLLOWEB/DESGOWebService/src/java/ec/com/desgo/modelo/CRUDUser.java</file>
-            <file>file:/C:/Users/egct/Documents/GitHub/DESGOVERSION2/DESARROLLOWEB/DESGOWebService/web/index.html</file>
-            <file>file:/C:/Users/egct/Documents/GitHub/DESGOVERSION2/DESARROLLOWEB/DESGOWebService/web/WEB-INF/web.xml</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
