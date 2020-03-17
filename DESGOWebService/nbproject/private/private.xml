@@ -2,6 +2,28 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/modelo/CRUDFormulario.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/modelo/Formulario.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/modelo/UserDAO.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/modelo/FormularioDAO.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/modelo/CRUDUser.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/modelo/DDescriptivosPredio_IULote.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/prueba/formPrueba02ListOneform.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/prueba/formPrueba02ListformForUser.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/prueba/formPrueba00Updateform.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/prueba/formPrueba02ListOneformInt.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/prueba/prueba05ListRoles.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/prueba/formPrueba00Insertform.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/prueba/formPrueba02buscarCodigoyUs.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/prueba/formPrueba00Deleteform.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/modelo/IdentificacionU_F.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/modelo/Economica_F.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/servicios/WSGestionFormulario.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/modelo/FormularioIds.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/servicios/WSGestionUsuario.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/prueba/prueba01.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/modelo/Direccion_DDPLote.java</file>
+        </group>
     </open-files>
 </project-private>

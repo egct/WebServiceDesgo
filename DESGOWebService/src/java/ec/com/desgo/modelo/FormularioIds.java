@@ -9,32 +9,33 @@ package ec.com.desgo.modelo;
  *
  * @author egct
  */
-public class Formulario {
+public class FormularioIds {
     Integer idFormulario;
-    IdentificacionU_F identificacionU_F;
-    IdentificacionL_F identificacionL_F;
-    CaracterizacionL_F caracterizacionL_F;
-    Limites_F limites_F;
-    GraficosP_F graficosP_F;
-    Economica_F economica_F;
-    Responsables_F responsables_F;
-    CaracterizacionC_F caracterizacionC_F;
-    ElementosC_F elementosC_F;
-    Mejora_F mejora_F;
-    Vivienda_F vivienda_F;
-    Mapa_F mapa_F;
+    Integer identificacionU_F;
+    Integer identificacionL_F;
+    Integer caracterizacionL_F;
+    Integer limites_F;
+    Integer graficosP_F;
+    Integer economica_F;
+    Integer responsables_F;
+    Integer caracterizacionC_F;
+    Integer elementosC_F;
+    Integer mejora_F;
+    Integer vivienda_F;
+    Integer mapa_F;
     Integer Codigo_F;
     Integer Estado_F;
     Integer IdUsuario_F;
 
-    public Formulario() {
+
+    public FormularioIds() {
     }
-    public Formulario(Integer idFormulario,IdentificacionU_F identificacionU_F, IdentificacionL_F identificacionL_F, CaracterizacionL_F caracterizacionL_F, Limites_F limites_F, GraficosP_F graficosP_F, Economica_F economica_F, Responsables_F responsables_F, CaracterizacionC_F caracterizacionC_F, ElementosC_F elementosC_F, Mejora_F mejora_F, Vivienda_F vivienda_F, Mapa_F mapa_F,Integer Codigo_F,Integer Estado_F,Integer IdUsuario_F) {
+
+    public FormularioIds(Integer idFormulario,Integer identificacionU_F, Integer identificacionL_F, Integer caracterizacionL_F, Integer graficosP_F, Integer economica_F, Integer responsables_F, Integer caracterizacionC_F, Integer elementosC_F, Integer mejora_F, Integer vivienda_F, Integer mapa_F, Integer Codigo_F, Integer Estado_F,Integer IdUsuario_F) {
         this.idFormulario=idFormulario;
         this.identificacionU_F = identificacionU_F;
         this.identificacionL_F = identificacionL_F;
         this.caracterizacionL_F = caracterizacionL_F;
-        this.limites_F = limites_F;
         this.graficosP_F = graficosP_F;
         this.economica_F = economica_F;
         this.responsables_F = responsables_F;
@@ -44,8 +45,9 @@ public class Formulario {
         this.vivienda_F = vivienda_F;
         this.mapa_F = mapa_F;
         this.Codigo_F = Codigo_F;
-        this.Estado_F=Estado_F;
+        this.Estado_F = Estado_F;
         this.IdUsuario_F = IdUsuario_F;
+
     }
 
     public Integer getIdFormulario() {
@@ -56,99 +58,99 @@ public class Formulario {
         this.idFormulario = idFormulario;
     }
 
-    public IdentificacionU_F getIdentificacionU_F() {
+    public Integer getIdentificacionU_F() {
         return identificacionU_F;
     }
 
-    public void setIdentificacionU_F(IdentificacionU_F identificacionU_F) {
+    public void setIdentificacionU_F(Integer identificacionU_F) {
         this.identificacionU_F = identificacionU_F;
     }
 
-    public IdentificacionL_F getIdentificacionL_F() {
+    public Integer getIdentificacionL_F() {
         return identificacionL_F;
     }
 
-    public void setIdentificacionL_F(IdentificacionL_F identificacionL_F) {
+    public void setIdentificacionL_F(Integer identificacionL_F) {
         this.identificacionL_F = identificacionL_F;
     }
 
-    public CaracterizacionL_F getCaracterizacionL_F() {
+    public Integer getCaracterizacionL_F() {
         return caracterizacionL_F;
     }
 
-    public void setCaracterizacionL_F(CaracterizacionL_F caracterizacionL_F) {
+    public void setCaracterizacionL_F(Integer caracterizacionL_F) {
         this.caracterizacionL_F = caracterizacionL_F;
     }
 
-    public Limites_F getLimites_F() {
+    public Integer getLimites_F() {
         return limites_F;
     }
 
-    public void setLimites_F(Limites_F limites_F) {
+    public void setLimites_F(Integer limites_F) {
         this.limites_F = limites_F;
     }
 
-    public GraficosP_F getGraficosP_F() {
+    public Integer getGraficosP_F() {
         return graficosP_F;
     }
 
-    public void setGraficosP_F(GraficosP_F graficosP_F) {
+    public void setGraficosP_F(Integer graficosP_F) {
         this.graficosP_F = graficosP_F;
     }
 
-    public Economica_F getEconomica_F() {
+    public Integer getEconomica_F() {
         return economica_F;
     }
 
-    public void setEconomica_F(Economica_F economica_F) {
+    public void setEconomica_F(Integer economica_F) {
         this.economica_F = economica_F;
     }
 
-    public Responsables_F getResponsables_F() {
+    public Integer getResponsables_F() {
         return responsables_F;
     }
 
-    public void setResponsables_F(Responsables_F responsables_F) {
+    public void setResponsables_F(Integer responsables_F) {
         this.responsables_F = responsables_F;
     }
 
-    public CaracterizacionC_F getCaracterizacionC_F() {
+    public Integer getCaracterizacionC_F() {
         return caracterizacionC_F;
     }
 
-    public void setCaracterizacionC_F(CaracterizacionC_F caracterizacionC_F) {
+    public void setCaracterizacionC_F(Integer caracterizacionC_F) {
         this.caracterizacionC_F = caracterizacionC_F;
     }
 
-    public ElementosC_F getElementosC_F() {
+    public Integer getElementosC_F() {
         return elementosC_F;
     }
 
-    public void setElementosC_F(ElementosC_F elementosC_F) {
+    public void setElementosC_F(Integer elementosC_F) {
         this.elementosC_F = elementosC_F;
     }
 
-    public Mejora_F getMejora_F() {
+    public Integer getMejora_F() {
         return mejora_F;
     }
 
-    public void setMejora_F(Mejora_F mejora_F) {
+    public void setMejora_F(Integer mejora_F) {
         this.mejora_F = mejora_F;
     }
 
-    public Vivienda_F getVivienda_F() {
+    public Integer getVivienda_F() {
         return vivienda_F;
     }
 
-    public void setVivienda_F(Vivienda_F vivienda_F) {
+    public void setVivienda_F(Integer vivienda_F) {
         this.vivienda_F = vivienda_F;
     }
 
-    public Mapa_F getMapa_F() {
+    public Integer getMapa_F() {
         return mapa_F;
     }
 
-    public void setMapa_F(Mapa_F mapa_F) {
+    public void setMapa_F(Integer mapa_F) {
         this.mapa_F = mapa_F;
     }
 
@@ -175,6 +177,5 @@ public class Formulario {
     public void setIdUsuario_F(Integer IdUsuario_F) {
         this.IdUsuario_F = IdUsuario_F;
     }
-    
     
 }

@@ -15,16 +15,19 @@ public class IdentificacionU_F {
     String CLAVECATASTRALANTIGUO_IULOTE;
     String NUMEROPREDIO_IULOTE;
     String CLAVECATASTRALNUEVO_IULOTE;
+    
+    DDescriptivosPredio_IULote dDescriptivosPredio_IULote;
 
     public IdentificacionU_F() {
     }
 
-    public IdentificacionU_F(Integer ID_IULOTE, Integer ID_DDPLOTE, String CLAVECATASTRALANTIGUO_IULOTE, String NUMEROPREDIO_IULOTE, String CLAVECATASTRALNUEVO_IULOTE) {
+    public IdentificacionU_F(Integer ID_IULOTE, Integer ID_DDPLOTE, String CLAVECATASTRALANTIGUO_IULOTE, String NUMEROPREDIO_IULOTE, String CLAVECATASTRALNUEVO_IULOTE,DDescriptivosPredio_IULote dDescriptivosPredio_IULote) {
         this.ID_IULOTE = ID_IULOTE;
         this.ID_DDPLOTE = ID_DDPLOTE;
         this.CLAVECATASTRALANTIGUO_IULOTE = CLAVECATASTRALANTIGUO_IULOTE;
         this.NUMEROPREDIO_IULOTE = NUMEROPREDIO_IULOTE;
         this.CLAVECATASTRALNUEVO_IULOTE = CLAVECATASTRALNUEVO_IULOTE;
+        this.dDescriptivosPredio_IULote=dDescriptivosPredio_IULote;
     }
 
     public Integer getID_IULOTE() {
@@ -65,6 +68,14 @@ public class IdentificacionU_F {
 
     public void setCLAVECATASTRALNUEVO_IULOTE(String CLAVECATASTRALNUEVO_IULOTE) {
         this.CLAVECATASTRALNUEVO_IULOTE = CLAVECATASTRALNUEVO_IULOTE;
+    }
+
+    public DDescriptivosPredio_IULote getdDescriptivosPredio_IULote() {
+        return dDescriptivosPredio_IULote;
+    }
+
+    public void setdDescriptivosPredio_IULote(DDescriptivosPredio_IULote dDescriptivosPredio_IULote) {
+        this.dDescriptivosPredio_IULote = dDescriptivosPredio_IULote;
     }
 
     

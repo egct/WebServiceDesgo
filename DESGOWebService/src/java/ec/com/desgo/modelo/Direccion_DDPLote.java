@@ -11,14 +11,14 @@ package ec.com.desgo.modelo;
  */
 public class Direccion_DDPLote {
     Integer ID_DLOTE;
-    Integer CALLEP_DLOTE;
-    Integer NO_DLOTE;
-    Integer INTERSECCION_DLOTE;
+    String CALLEP_DLOTE;
+    String NO_DLOTE;
+    String INTERSECCION_DLOTE;
 
     public Direccion_DDPLote() {
     }
 
-    public Direccion_DDPLote(Integer ID_DLOTE, Integer CALLEP_DLOTE, Integer NO_DLOTE, Integer INTERSECCION_DLOTE) {
+    public Direccion_DDPLote(Integer ID_DLOTE, String CALLEP_DLOTE, String NO_DLOTE, String INTERSECCION_DLOTE) {
         this.ID_DLOTE = ID_DLOTE;
         this.CALLEP_DLOTE = CALLEP_DLOTE;
         this.NO_DLOTE = NO_DLOTE;
@@ -33,28 +33,29 @@ public class Direccion_DDPLote {
         this.ID_DLOTE = ID_DLOTE;
     }
 
-    public Integer getCALLEP_DLOTE() {
+    public String getCALLEP_DLOTE() {
         return CALLEP_DLOTE;
     }
 
-    public void setCALLEP_DLOTE(Integer CALLEP_DLOTE) {
+    public void setCALLEP_DLOTE(String CALLEP_DLOTE) {
         this.CALLEP_DLOTE = CALLEP_DLOTE;
     }
 
-    public Integer getNO_DLOTE() {
+    public String getNO_DLOTE() {
         return NO_DLOTE;
     }
 
-    public void setNO_DLOTE(Integer NO_DLOTE) {
+    public void setNO_DLOTE(String NO_DLOTE) {
         this.NO_DLOTE = NO_DLOTE;
     }
 
-    public Integer getINTERSECCION_DLOTE() {
+    public String getINTERSECCION_DLOTE() {
         return INTERSECCION_DLOTE;
     }
 
-    public void setINTERSECCION_DLOTE(Integer INTERSECCION_DLOTE) {
+    public void setINTERSECCION_DLOTE(String INTERSECCION_DLOTE) {
         this.INTERSECCION_DLOTE = INTERSECCION_DLOTE;
     }
+    
     
 }
