@@ -201,4 +201,19 @@ public class WSGestionFormulario {
         return formularioDAO.insertarIdentificacionU_F(identificacionU_F);
     }
 
+    /**
+     * Web service operation
+     * @param pruebaaws
+     * @return 
+     */
+    @WebMethod(operationName = "cambiopruebaAWS")
+    public String cambiopruebaAWS(@WebParam(name = "pruebaaws")PruebaAws pruebaaws) {
+        //TODO write your implementation code here:
+        Integer item1= pruebaaws.getIdPrueba();
+        Integer item2=pruebaaws.getHora();
+        String item3= pruebaaws.getNombre();
+                
+        String ret="Si llego: "+ item1 + item2 + item3 + ">AWS";
+        return ret;
+    }
 }

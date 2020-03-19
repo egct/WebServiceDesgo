@@ -48,7 +48,7 @@ public class formPrueba00Updateform {
         //fdao.actualizarIdentificacionU_F(identificacionU_F);
         form.setIdFormulario(3);
         form.setCodigo_F(1724254205);
-        form.setEstado_F(1);
+        form.setEstado_F(0);
         form.setIdentificacionU_F(identificacionU_F);
         form.getIdentificacionU_F().setdDescriptivosPredio_IULote(dDescriptivosPredio_IULote);
         form.getIdentificacionU_F().getdDescriptivosPredio_IULote().setdDPLote(direccion_DDPLote);
