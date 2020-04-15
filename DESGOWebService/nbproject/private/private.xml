@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/modelo/UserDAO.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/servicios/WSGestionUsuario.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/prueba/pruebaSalt.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/controlador/Seguridad.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/modelo/LoginDAO.java</file>
+            <file>file:/C:/Users/egct/Documents/GitHub/WebServiceDesgo/DESGOWebService/src/java/ec/com/desgo/prueba/prueba01.java</file>
+        </group>
     </open-files>
 </project-private>
