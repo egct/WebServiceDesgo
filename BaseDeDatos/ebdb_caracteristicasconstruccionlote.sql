@@ -1,0 +1,60 @@
+CREATE DATABASE  IF NOT EXISTS `ebdb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `ebdb`;
+-- MySQL dump 10.13  Distrib 5.6.17, for Win64 (x86_64)
+--
+-- Host: aa1ga9qmu3en46x.ceriwji5vpsm.us-east-1.rds.amazonaws.com    Database: ebdb
+-- ------------------------------------------------------
+-- Server version	5.7.22-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `caracteristicasconstruccionlote`
+--
+
+DROP TABLE IF EXISTS `caracteristicasconstruccionlote`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `caracteristicasconstruccionlote` (
+  `ID_CCLOTE` int(11) NOT NULL AUTO_INCREMENT,
+  `ID_PH_CCLOTE` int(11) NOT NULL,
+  `ID_CBP_CCLOTE` int(11) NOT NULL,
+  `ID_DDB_CCLOTE` int(11) NOT NULL,
+  PRIMARY KEY (`ID_CCLOTE`),
+  KEY `FK_CARACTERISTICAPH` (`ID_PH_CCLOTE`),
+  KEY `FK_CLAVECARACTERISTICA` (`ID_CBP_CCLOTE`),
+  KEY `FK_DDESCRIPTIVOCARACTERISTICA` (`ID_DDB_CCLOTE`),
+  CONSTRAINT `FK_CARACTERISTICAPH` FOREIGN KEY (`ID_PH_CCLOTE`) REFERENCES `ph_cclote` (`ID_PH_CCLOTE`),
+  CONSTRAINT `FK_CLAVECARACTERISTICA` FOREIGN KEY (`ID_CBP_CCLOTE`) REFERENCES `clavebloquepiso_cclote` (`ID_CBP_CCLOTE`),
+  CONSTRAINT `FK_DDESCRIPTIVOCARACTERISTICA` FOREIGN KEY (`ID_DDB_CCLOTE`) REFERENCES `datosdescriptivosbloque_cclote` (`ID_DDB_CCLOTE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `caracteristicasconstruccionlote`
+--
+
+LOCK TABLES `caracteristicasconstruccionlote` WRITE;
+/*!40000 ALTER TABLE `caracteristicasconstruccionlote` DISABLE KEYS */;
+/*!40000 ALTER TABLE `caracteristicasconstruccionlote` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-04-09 12:23:52

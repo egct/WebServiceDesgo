@@ -7,6 +7,8 @@ package ec.com.desgo.servicios;
 
 
 import ec.com.desgo.modelo.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -125,6 +127,18 @@ public class WSGestionFormulario {
         Formulario form = f.listarFormularioInt(formularioIds,iulote);
         return form;
     }
+    /**
+     * Web service operation
+     * @param empresa
+     * @return 
+     */
+    @WebMethod(operationName = "listTodosFormIds")
+    public List<HashMapClassForm> listTodosFormIds(@WebParam(name = "empresa") String empresa ) {
+          FormularioDAO f = new FormularioDAO();
+          List<HashMapClassForm> response=new ArrayList<>();
+          response=f.listarTodosFormIds(empresa);
+        return  response;
+    }
       /**
      * Web service operation
      * @param formulario
@@ -158,6 +172,18 @@ public class WSGestionFormulario {
     public boolean eliminarFormulario(@WebParam(name = "codigo") String codigo,@WebParam(name = "user") User user) {
         FormularioDAO f = new FormularioDAO();
         boolean form= f.eliminarFormulario(codigo,user);
+        return form;
+    }
+    /**
+     * Web service operation
+     * @param idUser
+     * @param idForm
+     * @return 
+     */
+    @WebMethod(operationName = "asigUserFormulario")
+    public boolean asigUserFormulario(@WebParam(name = "idUser") int idUser, @WebParam(name = "idForm") int idForm) {
+        FormularioDAO f = new FormularioDAO();
+        boolean form= f.asiganarUserFormulario(idUser,idForm);
         return form;
     }
     

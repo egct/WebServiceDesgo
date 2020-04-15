@@ -5,6 +5,7 @@
  */
 package ec.com.desgo.modelo;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -19,6 +20,8 @@ public interface CRUDFormulario {
     public List<FormularioIds> listarFormularios(User us);
     public List<FormularioIds> listarFormulariosId(int idus);
     public Formulario listarFormulario(User us,FormularioIds formularioIds);
+    public List<HashMapClassForm> listarTodosFormIds(String empresa);
+    
     /**ACTUALIZAR POR USUARIO***/
     public boolean editarformulario(Formulario formulario);
     /**BUSCAR CODIGO Y USUARIO***/
@@ -26,7 +29,8 @@ public interface CRUDFormulario {
     /**ELIMINAR POR USUARIO***/
     public boolean eliminarFormulario(String codigo, User us);
     public boolean eliminarTodoFormulario(User us);
-    
+    /**ASIGNAR USUARIO A FORMULARIOS**/
+    public boolean asiganarUserFormulario(int idUser, int idForm);
     
     /**Identificacion ubicacion**/
     /**INSETAR***/

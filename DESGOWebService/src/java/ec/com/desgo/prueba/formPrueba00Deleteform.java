@@ -22,7 +22,18 @@ public class formPrueba00Deleteform {
         User us=new User();
         us.setID_USUARIO(1);
         FormularioDAO a=new FormularioDAO();
+        
+        
+
+
+
+
+
+
+
+
         //System.out.println(">>"+a.eliminarIdentificacionU_F(3));
-        System.out.println(">>"+wSGestionFormulario.eliminarFormulario("1723954887",us));
+        System.out.println(">>"+wSGestionFormulario.eliminarFormulario("1746171200",us));
+
      }
 }

@@ -49,7 +49,6 @@ public class formPrueba00Insertform {
         form.setIdentificacionU_F((int)re3);
         form.setCodigo_F(1723954111);
         form.setEstado_F(0);
-        form.setIdUsuario_F(us.getID_USUARIO());
         
                
         Boolean result =wSGestionFormulario.registarFormulario(us,form);
