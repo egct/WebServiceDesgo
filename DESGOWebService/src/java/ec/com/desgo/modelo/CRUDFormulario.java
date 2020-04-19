@@ -21,7 +21,7 @@ public interface CRUDFormulario {
     public List<FormularioIds> listarFormulariosId(int idus);
     public Formulario listarFormulario(User us,FormularioIds formularioIds);
     public List<HashMapClassForm> listarTodosFormIds(String empresa);
-    
+    public List<Formulario> listarTodosFormularios(String empresa);
     /**ACTUALIZAR POR USUARIO***/
     public boolean editarformulario(Formulario formulario);
     /**BUSCAR CODIGO Y USUARIO***/

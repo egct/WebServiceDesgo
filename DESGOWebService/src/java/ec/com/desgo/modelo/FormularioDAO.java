@@ -19,16 +19,16 @@ import java.util.List;
  */
 public class FormularioDAO implements CRUDFormulario {
 
-    Conexion conexion;
+    
 
     public FormularioDAO() {
-        conexion = new Conexion();
+        
     }
 
     @Override
     public boolean registrarFormulario(User us, FormularioIds form) {
         Boolean respuesta = false;
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         try {
             PreparedStatement ps = accesoDB.prepareStatement("insert into `formulario`(`ID_FORMULARIO`,`ID_IULOTE`,`CODIGO_FORMULARIO`,`ESTADO_FORMULARIO`,`ID_USUARIO`) values (null,?,?,?,?)");
             ps.setInt(1, form.getIdentificacionU_F());
@@ -43,6 +43,7 @@ public class FormularioDAO implements CRUDFormulario {
             }
         } catch (Exception e) {
         }
+        
         return respuesta;
     }
 
@@ -50,7 +51,7 @@ public class FormularioDAO implements CRUDFormulario {
     public List<FormularioIds> listarFormularios(User us) {
         List<FormularioIds> listforms = new ArrayList<>();
         String sql = "SELECT * FROM `formulario` WHERE `ID_USUARIO`=" + us.getID_USUARIO();
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         try {
             PreparedStatement ps = accesoDB.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -77,6 +78,7 @@ public class FormularioDAO implements CRUDFormulario {
         } catch (Exception e) {
             System.out.println("Error in listing Customers");
         }
+        
         return listforms;
     }
 
@@ -85,7 +87,7 @@ public class FormularioDAO implements CRUDFormulario {
         List<FormularioIds> listforms = new ArrayList<>();
         FormularioIds orderDB = null;
         String sql = "SELECT * FROM `formulario` WHERE `ID_USUARIO`=" + idus;
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         try {
             PreparedStatement ps = accesoDB.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -112,9 +114,43 @@ public class FormularioDAO implements CRUDFormulario {
         } catch (Exception e) {
             System.out.println("Error in listing Customers");
         }
+               
         return listforms;
     }
 
+    @Override
+    public List<Formulario> listarTodosFormularios(String empresa) {
+        List<Formulario> listforms = new ArrayList<>();
+        User us=null;
+        FormularioIds fids=new FormularioIds();
+        Formulario f=new Formulario();
+        List<HashMapClassForm> listformsUs=listarTodosFormIds(empresa);
+        for (HashMapClassForm i : listformsUs) {
+            us=i.getUs();
+            fids.setIdFormulario(i.getForm().getIdFormulario());
+            fids.setCodigo_F(i.getForm().getCodigo_F());
+            fids.setIdUsuario_F(i.getForm().getIdUsuario_F());
+            fids.setEstado_F(i.getForm().getEstado_F());
+            
+            /********Para cada item*******/
+            /*
+            *Identificacion Ubicacion
+             */
+            fids.setIdentificacionU_F(i.getForm().getIdentificacionU_F());
+            
+            /***/
+            f=listarFormulario(us,fids);
+            f.setIdFormulario(i.getForm().getIdFormulario());
+            f.setCodigo_F(i.getForm().getCodigo_F());
+            f.setIdUsuario_F(i.getForm().getIdUsuario_F());
+            f.setEstado_F(i.getForm().getEstado_F());
+
+            //System.out.println("> " + f.getIdFormulario() + " > " +f.getCodigo_F() + " > " +f.getEstado_F()+ " > " +f.getIdUsuario_F());
+            listforms.add(f);
+        }
+        return listforms;   
+    }
+    
     @Override
     public Formulario listarFormulario(User us, FormularioIds formularioIds) {
         Formulario form = null;
@@ -148,7 +184,7 @@ public class FormularioDAO implements CRUDFormulario {
 
     @Override
     public boolean editarformulario(Formulario formulario) {
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         String sql = "UPDATE `formulario` \n"
                 + "SET `CODIGO_FORMULARIO`=?,\n"
                 + "`ESTADO_FORMULARIO`=?\n"
@@ -162,10 +198,12 @@ public class FormularioDAO implements CRUDFormulario {
             actualizarDireccion_DDPLote(formulario.getIdentificacionU_F().getdDescriptivosPredio_IULote().getdDPLote());
             actualizarDDescriptivosPredio_IULote(formulario.getIdentificacionU_F().getdDescriptivosPredio_IULote());
             actualizarIdentificacionU_F(formulario.getIdentificacionU_F());
+            
             return true;
         } catch (Exception e) {
             System.out.println("Error in updating forms");
         }
+        
         return false;
     }
 
@@ -173,7 +211,7 @@ public class FormularioDAO implements CRUDFormulario {
     public FormularioIds buscarCodigoFormulario(String codigo, User us) {
         FormularioIds orderDB = null;
         String sql = "SELECT * FROM `formulario` WHERE `ID_USUARIO`=" + us.getID_USUARIO() + " AND `CODIGO_FORMULARIO`='" + codigo + "';";
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         try {
             PreparedStatement ps = accesoDB.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -195,11 +233,13 @@ public class FormularioDAO implements CRUDFormulario {
                 orderDB.setIdUsuario_F(rs.getInt("ID_USUARIO"));
                 orderDB.setCodigo_F(rs.getInt("CODIGO_FORMULARIO"));
                 orderDB.setEstado_F(rs.getInt("ESTADO_FORMULARIO"));
+                
                 return orderDB;
             }
         } catch (Exception e) {
             System.out.println("Error in listing Customers");
         }
+        
         return orderDB;
     }
 
@@ -208,7 +248,7 @@ public class FormularioDAO implements CRUDFormulario {
         FormularioIds formids = new FormularioIds();
         Formulario form = new Formulario();
 
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         String sql = "DELETE FROM `formulario` WHERE `ID_USUARIO`=" + us.getID_USUARIO() + " AND `CODIGO_FORMULARIO`='" + codigo + "';";
         try {
             formids = buscarCodigoFormulario(codigo, us);
@@ -261,7 +301,7 @@ public class FormularioDAO implements CRUDFormulario {
                 + "usuario.USUARIO_USUARIO \n"
                 + "FROM ebdb.formulario,ebdb.usuario \n"
                 + "WHERE  formulario.ID_USUARIO=usuario.ID_USUARIO AND usuario.EMPRESA_USUARIO='"+empresa+"';";
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         try {
             PreparedStatement ps = accesoDB.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -298,7 +338,7 @@ public class FormularioDAO implements CRUDFormulario {
 
     @Override
     public boolean asiganarUserFormulario(int idUser, int idForm) {
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         String sql = "UPDATE `formulario` \n"
                 + "SET `ID_USUARIO`=? \n"
                 + "WHERE `ID_FORMULARIO`=?;";
@@ -320,7 +360,7 @@ public class FormularioDAO implements CRUDFormulario {
     @Override
     public long insertarDireccion_DDPLote(Direccion_DDPLote direccion_DDPLote) {
         long respuesta = 0;
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         try {
             PreparedStatement ps = accesoDB.prepareStatement("INSERT INTO `direccion_ddplote`(`ID_DLOTE`,`CALLEP_DLOTE`, `NO_DLOTE`, `INTERSECCION_DLOTE`) VALUES (null,?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, direccion_DDPLote.getCALLEP_DLOTE());
@@ -335,14 +375,13 @@ public class FormularioDAO implements CRUDFormulario {
             }
         } catch (Exception e) {
         }
-
         return respuesta;
     }
 
     @Override
     public long insertarDDescriptivosPredio_IULote(DDescriptivosPredio_IULote dDescriptivosPredio_IULote) {
         long respuesta = 0;
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         try {
             PreparedStatement ps = accesoDB.prepareStatement("INSERT INTO `ddescriptivospredio_iulote`(`ID_DDPLOTE`,`ID_DLOTE`,`NOMBRESECTOR_DDPLOTE`,`NOMBREEDIFICIO_DDPLOTE`,`USOPREDIO_DDPLOTE`,`TIPOPREDIO_DDPLOTE`,`REGIMENTENECIA_DDPLOTE`) VALUES (null,?,?,?,?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setLong(1, dDescriptivosPredio_IULote.getID_DLOTE());
@@ -361,14 +400,13 @@ public class FormularioDAO implements CRUDFormulario {
             }
         } catch (Exception e) {
         }
-
         return respuesta;
     }
 
     @Override
     public long insertarIdentificacionU_F(IdentificacionU_F identificacionU_F) {
         long respuesta = 0;
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         try {
             PreparedStatement ps = accesoDB.prepareStatement("INSERT INTO `identificacionubicacionlote`(`ID_IULOTE`,`ID_DDPLOTE`,`CLAVECATASTRALANTIGUO_IULOTE`,`NUMEROPREDIO_IULOTE`,`CLAVECATASTRALNUEVO_IULOTE`) VALUES (null,?,?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setLong(1, identificacionU_F.getID_DDPLOTE());
@@ -384,7 +422,6 @@ public class FormularioDAO implements CRUDFormulario {
             }
         } catch (Exception e) {
         }
-
         return respuesta;
 
     }
@@ -392,7 +429,7 @@ public class FormularioDAO implements CRUDFormulario {
     @Override
     public Direccion_DDPLote listarDireccion_DDPLote(int direccion_DDPLote) {
         Direccion_DDPLote dDPLote = null;
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
 
         try {
             PreparedStatement ps = accesoDB.prepareStatement("SELECT * FROM `direccion_ddplote` WHERE `direccion_ddplote`.`ID_DLOTE` = ? ;");
@@ -415,7 +452,7 @@ public class FormularioDAO implements CRUDFormulario {
     @Override
     public DDescriptivosPredio_IULote listarDDescriptivosPredio_IULote(int dDescriptivosPredio_IULote) {
         DDescriptivosPredio_IULote ddpiul = null;
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
 
         try {
             PreparedStatement ps = accesoDB.prepareStatement("SELECT * FROM `ddescriptivospredio_iulote` WHERE `ddescriptivospredio_iulote`.`ID_DDPLOTE` = ? ;");
@@ -440,7 +477,7 @@ public class FormularioDAO implements CRUDFormulario {
     @Override
     public IdentificacionU_F listarIdentificacionU_F(int identificacionU_F) {
         IdentificacionU_F iuf = null;
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
 
         try {
             PreparedStatement ps = accesoDB.prepareStatement("SELECT * FROM `identificacionubicacionlote` WHERE `identificacionubicacionlote`.`ID_IULOTE` = ? ;");
@@ -462,7 +499,7 @@ public class FormularioDAO implements CRUDFormulario {
 
     @Override
     public boolean actualizarDireccion_DDPLote(Direccion_DDPLote direccion_DDPLote) {
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         String sql = "UPDATE `direccion_ddplote` \n"
                 + "SET `CALLEP_DLOTE`=?,\n"
                 + "`NO_DLOTE`=?,\n"
@@ -484,7 +521,7 @@ public class FormularioDAO implements CRUDFormulario {
 
     @Override
     public boolean actualizarDDescriptivosPredio_IULote(DDescriptivosPredio_IULote dDescriptivosPredio_IULote) {
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         String sql = "UPDATE `ddescriptivospredio_iulote` \n"
                 + "SET `NOMBRESECTOR_DDPLOTE`=?,\n"
                 + "`NOMBREEDIFICIO_DDPLOTE`=?,\n"
@@ -510,7 +547,7 @@ public class FormularioDAO implements CRUDFormulario {
 
     @Override
     public boolean actualizarIdentificacionU_F(IdentificacionU_F identificacionU_F) {
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         String sql = "UPDATE `identificacionubicacionlote` \n"
                 + "SET `CLAVECATASTRALANTIGUO_IULOTE`=?,\n"
                 + "`NUMEROPREDIO_IULOTE`=?,\n"
@@ -532,7 +569,7 @@ public class FormularioDAO implements CRUDFormulario {
 
     @Override
     public boolean eliminarDireccion_DDPLote(int direccion_DDPLote) {
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         String sql = "DELETE FROM `direccion_ddplote` WHERE `ID_DLOTE`=" + direccion_DDPLote;
         try {
 
@@ -547,7 +584,7 @@ public class FormularioDAO implements CRUDFormulario {
 
     @Override
     public boolean eliminarDDescriptivosPredio_IULote(int dDescriptivosPredio_IULote) {
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         String sql = "DELETE FROM `ddescriptivospredio_iulote` WHERE `ID_DDPLOTE`=" + dDescriptivosPredio_IULote;
         try {
 
@@ -562,7 +599,7 @@ public class FormularioDAO implements CRUDFormulario {
 
     @Override
     public boolean eliminarIdentificacionU_F(int identificacionU_F) {
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         String sql = "DELETE FROM `identificacionubicacionlote` WHERE `ID_IULOTE`=" + identificacionU_F;
         try {
 
@@ -574,6 +611,8 @@ public class FormularioDAO implements CRUDFormulario {
         }
         return true;
     }
+
+    
 
    
 

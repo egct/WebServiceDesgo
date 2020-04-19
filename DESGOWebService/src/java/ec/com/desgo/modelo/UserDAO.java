@@ -18,10 +18,10 @@ import java.util.List;
  */
 public class UserDAO implements CRUDUser {
 
-    Conexion conexion;
+    
 
     public UserDAO() {
-        conexion = new Conexion();
+        
     }
 
     @Override
@@ -31,7 +31,7 @@ public class UserDAO implements CRUDUser {
         TipoUsuario tipoUsuario = null;
         String tipoU = tipoUsuario(user, pass);
         System.out.println("tipo usuario>" + tipoU);
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
 
         try {
             PreparedStatement ps = accesoDB.prepareStatement("SELECT DISTINCT * FROM `usuario`,`persona`,`tipousuario` WHERE `USUARIO_USUARIO` = ? AND `CONTRASENIA_USUARIO`=? AND `tipousuario`.`NIVEL_TIPOUSUARIO`=? and `persona`.`ID_PERSONA`=`usuario`.`ID_PERSONA`;");
@@ -66,9 +66,11 @@ public class UserDAO implements CRUDUser {
                 tipoUsuario.setID_TIPOUSUARIO(rs.getInt(20));
                 tipoUsuario.setNIVEL_TIPOUSUARIO(rs.getString(21));
                 usuario.setTipoUsuario(tipoUsuario);
+                
                 return usuario;
             }
         } catch (Exception e) {
+            
         }
         return usuario;
 
@@ -80,7 +82,7 @@ public class UserDAO implements CRUDUser {
         TipoUsuario tp = new TipoUsuario();
         UserDAO userDao = new UserDAO();
 
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         if (userDao.buscarCedulaPersona(us.getPersona().getCEDULA_PERSONA())) {
             try {
                 PreparedStatement ps = accesoDB.prepareStatement("insert into persona(ID_PERSONA,PNOMBRE_PERSONA,"
@@ -122,19 +124,20 @@ public class UserDAO implements CRUDUser {
                 }
             }*/
                 if (rs > 0) {
+                    
                     respuesta = true;
                 }
 
             } catch (Exception e) {
+                
             }
         }
-
         return respuesta;
     }
 
     public boolean registrarUsuario(User us, int idpersona) {
         boolean respuesta = false;
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         UserDAO userDao = new UserDAO();
         if (userDao.buscarNombreUsuario(us.getUSUARIO_USUARIO())) {
             int salt = Seguridad.randomico();
@@ -152,9 +155,11 @@ public class UserDAO implements CRUDUser {
                 int rs = ps.executeUpdate();
 
                 if (rs > 0) {
+                    
                     respuesta = true;
                 }
             } catch (Exception e) {
+                
             }
         }
         return respuesta;
@@ -162,7 +167,7 @@ public class UserDAO implements CRUDUser {
 
     public int buscarIdPersona(String correo) {
         int idpersona = -1;
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         try {
             PreparedStatement ps = accesoDB.prepareStatement("SELECT ID_PERSONA FROM persona WHERE CORREO_PERSONA = ?");
             ps.setString(1, correo);
@@ -170,9 +175,11 @@ public class UserDAO implements CRUDUser {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 idpersona = rs.getInt(1);
+                
                 return idpersona;
             }
         } catch (Exception e) {
+            
         }
         return idpersona;
     }
@@ -180,7 +187,7 @@ public class UserDAO implements CRUDUser {
     @Override
     public String tipoUsuario(String user, String pass) {
         TipoUsuario tipoU = null;
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         try {
             PreparedStatement ps = accesoDB.prepareStatement("SELECT `tipousuario`.`NIVEL_TIPOUSUARIO` FROM `usuario`,`tipousuario`WHERE `USUARIO_USUARIO` = ? AND `CONTRASENIA_USUARIO`=? AND `tipousuario`.`ID_TIPOUSUARIO`=`usuario`.`ID_TIPOUSUARIO`");
             ps.setString(1, user);
@@ -199,7 +206,7 @@ public class UserDAO implements CRUDUser {
 
     public int tipoUsuario(String tipoUsuario) {
         int tipou = -1;
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         try {
             PreparedStatement ps = accesoDB.prepareStatement("SELECT `ID_TIPOUSUARIO` FROM `tipousuario`WHERE `NIVEL_TIPOUSUARIO`=?");
             ps.setString(1, tipoUsuario);
@@ -207,6 +214,7 @@ public class UserDAO implements CRUDUser {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 tipou = rs.getInt(1);
+                
                 return tipou;
             }
         } catch (Exception e) {
@@ -224,7 +232,7 @@ public class UserDAO implements CRUDUser {
         User usuario = null;
         Persona persona = null;
         TipoUsuario tipoUsuario = null;
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
 
         try {
             PreparedStatement ps = accesoDB.prepareStatement("SELECT DISTINCT * FROM `usuario`,`persona`,`tipousuario` WHERE `usuario`.`ID_USUARIO` = ? AND `usuario`.`ID_PERSONA`=`persona`.`ID_PERSONA` AND `usuario`.`ID_TIPOUSUARIO`=`tipousuario`.`ID_TIPOUSUARIO`;");
@@ -269,7 +277,7 @@ public class UserDAO implements CRUDUser {
     public List<TipoUsuario> listarRoles() {
         List<TipoUsuario> listRoles = new ArrayList<>();
         String sql = "SELECT * FROM `tipousuario`";
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         try {
             PreparedStatement ps = accesoDB.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -289,7 +297,7 @@ public class UserDAO implements CRUDUser {
     public List<Persona> listarPersonas(int id) {
         List<Persona> listPersonas = new ArrayList<>();
         Persona persona = null;
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
 
         try {
             PreparedStatement ps = accesoDB.prepareStatement("SELECT DISTINCT * FROM `persona` \n"
@@ -324,7 +332,7 @@ public class UserDAO implements CRUDUser {
         User usuario = null;
         Persona persona = null;
         TipoUsuario tipoUsuario = null;
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
 
         try {
             PreparedStatement ps = accesoDB.prepareStatement("SELECT DISTINCT * FROM `usuario`,`persona`,`tipousuario` \n"
@@ -370,7 +378,7 @@ public class UserDAO implements CRUDUser {
 
     @Override
     public boolean eliminarPersona(Persona persona) {
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         String sql = "DELETE FROM `persona` WHERE `ID_PERSONA`=" + persona.getID_PERSONA();
         try {
             PreparedStatement ps = accesoDB.prepareStatement(sql);
@@ -384,7 +392,7 @@ public class UserDAO implements CRUDUser {
 
     @Override
     public boolean eliminarUsuarios(User us) {
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         String sql = "DELETE FROM `usuario` WHERE `ID_USUARIO`=" + us.getID_USUARIO();
         try {
             PreparedStatement ps = accesoDB.prepareStatement(sql);
@@ -398,7 +406,7 @@ public class UserDAO implements CRUDUser {
 
     @Override
     public boolean editPersona(Persona persona) {
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         String sql = "UPDATE `persona` \n"
                 + "SET `PNOMBRE_PERSONA`=?,\n"
                 + "`SNOMBRE_PERSONA`=?,\n"
@@ -434,7 +442,7 @@ public class UserDAO implements CRUDUser {
 
     @Override
     public boolean editUsuarios(User us) {
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         int salt = Seguridad.randomico();
         us.setSALT_USUARIO(salt);
         us.setCONTRASENIA_USUARIO(Seguridad.sha256(us.getSALT_USUARIO() + us.getCONTRASENIA_USUARIO()));
@@ -463,7 +471,7 @@ public class UserDAO implements CRUDUser {
 
     @Override
     public boolean buscarCedulaPersona(String cedula) {
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         try {
             PreparedStatement ps = accesoDB.prepareStatement("SELECT * FROM `persona` WHERE `CEDULA_PERSONA`= ?;");
             ps.setString(1, cedula);
@@ -478,7 +486,7 @@ public class UserDAO implements CRUDUser {
 
     @Override
     public boolean buscarNombreUsuario(String nombreUsuario) {
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         try {
             PreparedStatement ps = accesoDB.prepareStatement("SELECT * FROM `usuario` WHERE `USUARIO_USUARIO`=?");
             ps.setString(1, nombreUsuario);

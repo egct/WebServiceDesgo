@@ -11,16 +11,15 @@ import java.sql.*;
  * @author Oscar
  */
 public class EmpleadoDAO {
-    Conexion conexion;
     
     public EmpleadoDAO(){
-        conexion = new Conexion();
+        
     }
 
 
     public Empleado verificaUsuario(String dni, String contraseña, String privilegio){
         Empleado empleado=null;
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         try {
             
             PreparedStatement ps = accesoDB.prepareStatement("select * from empleado where dni=? and pass=? and privilegio=?");
@@ -45,7 +44,7 @@ public class EmpleadoDAO {
     
     public String registraUsuario(String dni, String pass, String apellidos, String nombres, String privilegio){
         String respuesta=null;
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         try {
             PreparedStatement ps = accesoDB.prepareStatement("insert into empleado(dni,pass,apellidos,nombres,privilegio) values (?,?,?,?,?)");
             ps.setString(1, dni);

@@ -105,6 +105,18 @@ public class WSGestionFormulario {
     
      /**
      * Web service operation
+     * @param empresa
+     * @return 
+     */
+    @WebMethod(operationName = "listarTodosFormulariosExp")
+    public List<Formulario> listarTodosFormulariosExp(@WebParam(name = "empresa") String empresa) {
+        FormularioDAO f = new FormularioDAO();
+        List<Formulario> listforms = f.listarTodosFormularios(empresa);
+        return listforms;
+    }
+    
+     /**
+     * Web service operation
      * @param user
      * @param formularioIds
      * @return 

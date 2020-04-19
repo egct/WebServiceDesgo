@@ -14,10 +14,9 @@ import java.sql.PreparedStatement;
  */
 public class EconomiaLoteDAO implements CRUDGenerico{
     
-    Conexion conexion;
-
+    
     public EconomiaLoteDAO() {
-        conexion= new Conexion();
+        
     }
     
     @Override
@@ -26,7 +25,7 @@ public class EconomiaLoteDAO implements CRUDGenerico{
         EconomiaLote economiaLote=new EconomiaLote();
         economiaLote=(EconomiaLote)o;
         
-        Connection accesoDB = conexion.getConexion();
+        Connection accesoDB = Conexion.getConexion();
         try {
             PreparedStatement ps = accesoDB.prepareStatement("insert into economialote(ID_ELOTE,AVALUOTIERRA_ELOTE,AVALUOCON_ELOTE,AVALUOTOTAL_ELOTE) values (null,?,?,?)");   
             ps.setFloat(1, economiaLote.getAVALUOTIERRA_ELOTE());
